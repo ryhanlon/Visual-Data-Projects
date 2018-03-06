@@ -15,7 +15,32 @@
         // Using the SVG Coordinate Space
         // https://www.dashingd3js.com/using-the-svg-coordinate-space
 
+        // The data set
+        let spaceCircles = [30, 70, 110];
 
+        // This SVG container to hold the SVG Circles
+        let svgContainer = d3.select("body").append("svg")
+                                            .attr("width", 200)
+                                            .attr("height", 200);
+
+        // Bind the data to the SVG Circle elements
+        let circles = svgContainer.selectAll("circle")
+                                  .data(spaceCircles)
+                                  .enter()
+                                  .append("circle");
+
+
+        let circleAttributes = circles
+            .attr("cx", function (d) { return d; })  // Use the bound data to specify the attributes
+            .attr("cy", function (d) { return d; })  // for the x-coordinate and the y-coordinate
+            .attr("r", 20)
+            .style("fill", function(d) {    // Use the data to set the color for each circle
+                let returnColor;
+                if (d === 30) {returnColor = "blue";
+                } else if (d === 70) { returnColor = "purple";
+                } else if (d === 110) { returnColor = "orange"; }
+                return returnColor;
+            });
     </script>
 
 </body>
