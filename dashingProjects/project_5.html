@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using the SVG Coordinate Space</title>
+
+    <!-- d3.js file-->
+    <script type="text/javascript" src="../d3/d3.js"></script>
+
+</head>
+<body>
+
+    <h3>
+        Currently lesson
+        SVG Basic Shapes and D3.js  <br>
+        https://www.dashingd3js.com/svg-basic-shapes-and-d3js
+
+    </h3>
+
+    <script>
+        // simplify process to two steps
+
+        //Make an SVG Container
+        const svgContainer = d3.select("body").append("svg")
+            .attr("width", 400)
+            .attr("height", 400);
+
+        //Draw the Circle
+        const circle = svgContainer.append("circle")
+            .attr("cx", 30)
+            .attr("cy", 30)
+            .attr("r", 20)
+            .style("fill", "rebeccapurple");
+
+        //Draw the rectangle
+        const rectangle = svgContainer.append("rect")
+            .attr("x", 80)
+            .attr("y", 50)
+            .attr("width", 50)
+            .attr("height", 100)
+            .style("fill", "green");
+
+        //Draw the ellipse
+        const ellipse = svgContainer.append("ellipse")
+            .attr("cx", 175)
+            .attr("cy", 150)
+            .attr("rx", 25)
+            .attr("ry", 50)
+            .style("fill", "#db8446");
+
+        //
+        const line = svgContainer.append("line")
+            .attr("x1", 250)
+            .attr("y1", 100)
+            .attr("x2", 200)
+            .attr("y2", 200)
+            .attr("stroke-width", 4)
+            .attr("stroke", "#db35cb")
+
+    </script>
+
+    <script>
+        // SVG Basic Shapes and D3.js
+        // https://www.dashingd3js.com/svg-basic-shapes-and-d3js
+
+        // The data set
+        // let jsonCircles = [
+            // {
+            //     "x_axis": 30,
+            //     "y_axis": 30,
+            //     "radius": 20,
+            //     "color": "pink"
+            // }, {
+            //     "x_axis": 70,
+            //     "y_axis": 70,
+            //     "radius": 20,
+            //     "color": "purple"
+            // }, {
+            //     "x_axis": 110,
+            //     "y_axis": 100,
+            //     "radius": 20,
+            //     "color": "orange"
+            // }];
+
+        // This SVG container to hold the SVG Circles
+        // let svgContainer = d3.select("body").append("svg")
+        //                                     .attr("width", 200)
+        //                                     .attr("height", 200);
+
+        // Bind the data to the SVG Circle elements
+        // let circles = svgContainer.selectAll("circle")
+        //                           .data(jsonCircles)
+        //                           .enter()
+        //                           .append("circle");
+
+        // Use name value pair to call specific data to circles | function (d) { return d; }
+        // let circleAttributes = circles
+        //     .attr("cx", function (d) { return d.x_axis; })
+        //     .attr("cy", function (d) { return d.y_axis; })
+        //     .attr("r", function(d) { return d.radius; })
+        //     .style("fill", function(d) { return d.color; });
+
+    </script>
+
+</body>
+</html>
