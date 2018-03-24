@@ -5,7 +5,10 @@
     <title>Using the SVG Coordinate Space</title>
 
     <!-- d3.js file-->
-    <script type="text/javascript" src="../d3/d3.js"></script>
+    <!--<script type="text/javascript" src="../d3/d3.js"></script>-->
+    <!--<script src="https://d3js.org/d3.v5.js"></script>-->
+    <!--<script src="https://d3js.org/d3.v5.min.js"></script>-->
+    <script src="http://d3js.org/d3.v4.0.0-alpha.44.min.js"></script>
 
 </head>
 <body>
@@ -18,60 +21,38 @@
     </h3>
 
     <script>
-        // simplify process to two steps
+        // using a Path Data Generator Function for lines | d3.line()  -- use this for D3js v4
 
-        //Make an SVG Container
+        // The data for our line
+        const lineData = [ { "x": 1, "y": 5}, { "x": 20,  "y": 20},
+                           { "x": 40,  "y": 10}, { "x": 60,  "y": 40},
+                           { "x": 80,  "y": 5},  { "x": 100, "y": 60}];
+
+        // This is the accessor function
+        const lineFunction = d3.line()
+                                    .x(function(d) { return d.x; })
+                                    .y(function(d) { return d.y; })
+                                    .curve(d3.curveLinear);  /* use this for D3js v4 */
+
+        // The SVG Container
         const svgContainer = d3.select("body").append("svg")
-            .attr("width", 400)
-            .attr("height", 400);
+            .attr("width", 200)
+            .attr("height", 200);
+
+        //the line SVG Path we draw
+        const lineGraph = svgContainer.append("path")
+            .attr("d", lineFunction(lineData))
+            .attr("stroke", "blue")
+            .attr("stroke-width", 2)
+            .attr("fill", "none");
+
+
+
 
         //Draw a polyline
 
         //Draw a polygon
 
-
-    </script>
-
-    <script>
-        // SVG Basic Shapes and D3.js
-        // https://www.dashingd3js.com/svg-basic-shapes-and-d3js
-
-        // The data set
-        // let jsonCircles = [
-            // {
-            //     "x_axis": 30,
-            //     "y_axis": 30,
-            //     "radius": 20,
-            //     "color": "pink"
-            // }, {
-            //     "x_axis": 70,
-            //     "y_axis": 70,
-            //     "radius": 20,
-            //     "color": "purple"
-            // }, {
-            //     "x_axis": 110,
-            //     "y_axis": 100,
-            //     "radius": 20,
-            //     "color": "orange"
-            // }];
-
-        // This SVG container to hold the SVG Circles
-        // let svgContainer = d3.select("body").append("svg")
-        //                                     .attr("width", 200)
-        //                                     .attr("height", 200);
-
-        // Bind the data to the SVG Circle elements
-        // let circles = svgContainer.selectAll("circle")
-        //                           .data(jsonCircles)
-        //                           .enter()
-        //                           .append("circle");
-
-        // Use name value pair to call specific data to circles | function (d) { return d; }
-        // let circleAttributes = circles
-        //     .attr("cx", function (d) { return d.x_axis; })
-        //     .attr("cy", function (d) { return d.y_axis; })
-        //     .attr("r", function(d) { return d.radius; })
-        //     .style("fill", function(d) { return d.color; });
 
     </script>
 
